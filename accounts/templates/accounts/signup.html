@@ -1,0 +1,31 @@
+{% include "accounts/header.html" %}
+
+<div class="container d-flex justify-content-center align-items-center">
+  <div class="col-md-4">
+    <div class="card p-4">
+      <h3 class="text-center mb-3">Create Account</h3>
+
+      {% if error %}
+        <div class="alert alert-danger">{{ error }}</div>
+      {% endif %}
+
+      <form method="POST" novalidate>
+        {% csrf_token %}
+        <input type="email" name="email" class="form-control mb-3" placeholder="Email" value="{{ email_value|default:'' }}" required>
+        <input type="password" name="password" class="form-control mb-3" placeholder="Password" required>
+        <input type="password" name="confirm" class="form-control mb-3" placeholder="Confirm Password" required>
+        <div class="form-text text-muted"><p>Your password must contain at least 8 characters,
+            including uppercase, lowercase, number and special character.</p></div>
+
+        <button class="btn btn-primary w-100">Signup</button>
+      </form>
+
+      <p class="text-center mt-3">
+        Already have account? <a href="{% url 'login' %}">Login</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

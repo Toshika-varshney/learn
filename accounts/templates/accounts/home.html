@@ -1,0 +1,27 @@
+{% include "accounts/header.html" %}
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="col-md-5">
+    <div class="card shadow p-4 text-center">
+      <h3 class="mb-3">Welcome </h3>
+      <h2 class="mb-3">Herinext India pvt. ltd.</h2>
+      <p class="text-muted">
+        Logged in as <strong>{{ request.user.email }}</strong>
+      </p>
+
+      <div class="d-grid gap-2 mt-4">
+        <a href="{% url 'change_password' %}" class="btn btn-outline-primary">
+          Change Password
+        </a>
+
+        <a href="{% url 'logout' %}" class="btn btn-danger">
+          Logout
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
